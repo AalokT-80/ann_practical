@@ -1,0 +1,21 @@
+import numpy as np
+
+x1=np.array([1,1,1,-1])
+y1=np.array([1,-1])
+x2=np.array([-1,-1,1,1,])
+y2=np.array([-1,1])
+
+w=np.outer(y1,x1)+np.outer(y2,x2)
+
+def bam(x):
+    if(len(x==2)):
+        y=np.dot(x,w)
+    else:
+        y=np.dot(w,x)
+    return np.where(y>=0,1,-1)
+
+x_test=np.array([1,-1])
+y_test=bam(x_test)
+
+print(f"Input x: {x_test}")
+print(f"Output y: {y_test}")
